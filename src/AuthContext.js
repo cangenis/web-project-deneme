@@ -1,4 +1,3 @@
-// AuthContext.js
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 
@@ -11,8 +10,10 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate(); // Hook for navigating
 
   const login = (userCredentials) => {
-    // Simulate setting the user as logged in
-    setUser({ id: "123", username: "user" }); // Simulate a user object
+    setUser({
+      id: userCredentials.id,
+      username: userCredentials.username, // Ensure this is the key holding the username in the response
+    });
     navigate("/"); // Redirect to the home page after login
   };
 

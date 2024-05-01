@@ -36,7 +36,13 @@ app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.login(email, password);
-    res.status(200).json({ userId: user._id });
+    res.status(200).json({
+      userId: user._id,
+      username: user.username,
+      name: user.name,
+      surname: user.surname,
+      telephone: user.telephone,
+    });
   } catch (err) {
     res.status(401).json({ error: err.message });
   }

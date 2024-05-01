@@ -16,6 +16,7 @@ function Login() {
         password,
       });
       if (response.data) {
+        console.log(response.data);
         login(response.data); // Pass user data to login function
       }
     } catch (error) {
