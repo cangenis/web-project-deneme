@@ -1,4 +1,3 @@
-// App.js
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -12,6 +11,7 @@ import Home from "./components/Home";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
+import Forum from "./components/Forum";
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/forum" element={<Forum />} />
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
       </AuthProvider>

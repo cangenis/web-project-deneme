@@ -1,4 +1,3 @@
-// Profile.js
 import React from "react";
 import { useAuth } from "../AuthContext"; // Make sure you have AuthContext to provide user data
 

@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../AuthContext";
 
 function Home() {
-  const { user } = useAuth();
-
   return (
     <div
       style={{
@@ -14,15 +11,11 @@ function Home() {
         marginTop: "20px",
       }}
     >
-      {user ? (
-        <h1>Welcome, {user.username}!</h1> // Display the username
-      ) : (
-        <h1>Welcome to Organiz'Asso</h1> // Default welcome message
-      )}
+      <h1>Welcome to Organiz'Asso</h1>
       <p>
         This is the best place to exchange ideas and participate in discussions.
       </p>
-      <p>Select an option to continue:</p>
+      <p>Join us now!</p>
       <Link
         to="/signup"
         style={{

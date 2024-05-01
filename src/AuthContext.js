@@ -18,12 +18,12 @@ export const AuthProvider = ({ children }) => {
       username: userCredentials.username,
       email: userCredentials.email,
     });
-    navigate("/"); // Redirect to the home page after login
+    navigate("/forum"); // Redirect to the forum page after login
   };
 
   const logout = () => {
     setUser(null); // Set the user as logged out
-    navigate("/login"); // Redirect to login page after logout
+    navigate("/"); // Redirect to home page after logout
   };
 
   // Provide user, login, and logout throughout the component tree
