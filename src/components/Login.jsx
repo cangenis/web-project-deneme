@@ -1,9 +1,12 @@
+// Login.js
 import React, { useState } from "react";
 import axios from "axios";
+import { useAuth } from "../AuthContext"; // Make sure to import useAuth
 
-const Login = () => {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useAuth(); // Get the login function from context
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -12,10 +15,11 @@ const Login = () => {
         email,
         password,
       });
-      console.log("Login successful", response.data);
-      // Redirect or save the login state
+      if (response.data) {
+        login(response.data); // Pass user data to login function
+      }
     } catch (error) {
-      console.error("Login error", error);
+      console.error("Login failed:", error);
     }
   };
 
@@ -40,6 +44,6 @@ const Login = () => {
       <button type="submit">Login</button>
     </form>
   );
-};
+}
 
 export default Login;
