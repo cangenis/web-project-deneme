@@ -15,7 +15,7 @@ function Home() {
       }}
     >
       {user ? (
-        <h1>Welcome, {user.username}!</h1> // Display the user's username
+        <h1>Welcome, {user.username}!</h1> // Display the username
       ) : (
         <h1>Welcome to Organiz'Asso</h1> // Default welcome message
       )}

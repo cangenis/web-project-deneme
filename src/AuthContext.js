@@ -12,14 +12,18 @@ export const AuthProvider = ({ children }) => {
   const login = (userCredentials) => {
     setUser({
       id: userCredentials.id,
-      username: userCredentials.username, // Ensure this is the key holding the username in the response
+      name: userCredentials.name,
+      surname: userCredentials.surname,
+      telephone: userCredentials.telephone,
+      username: userCredentials.username,
+      email: userCredentials.email,
     });
     navigate("/"); // Redirect to the home page after login
   };
 
   const logout = () => {
     setUser(null); // Set the user as logged out
-    navigate("/login"); // Optional: Redirect to login page after logout
+    navigate("/login"); // Redirect to login page after logout
   };
 
   // Provide user, login, and logout throughout the component tree

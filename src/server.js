@@ -41,6 +41,7 @@ app.post("/login", async (req, res) => {
       username: user.username,
       name: user.name,
       surname: user.surname,
+      email: user.email,
       telephone: user.telephone,
     });
   } catch (err) {
