@@ -10,7 +10,7 @@ function Profile() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>My Profile</h1>
+      <h1>My Organiz'Asso Profile</h1>
       <p>
         <strong>Name:</strong> {user.name}
       </p>
