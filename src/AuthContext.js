@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -14,11 +14,23 @@ export const AuthProvider = ({ children }) => {
       id: userCredentials.id,
       name: userCredentials.name,
       surname: userCredentials.surname,
+      username: userCredentials.username,
+      email: userCredentials.email,
+      telephone: userCredentials.telephone,
+    });
+    navigate("/forum"); // Redirect to the forum page after login
+  };
+
+  const signup = (userCredentials) => {
+    setUser({
+      id: userCredentials.id,
+      name: userCredentials.name,
+      surname: userCredentials.surname,
       telephone: userCredentials.telephone,
       username: userCredentials.username,
       email: userCredentials.email,
     });
-    navigate("/forum"); // Redirect to the forum page after login
+    navigate("/login"); // Redirect to the forum page after signup
   };
 
   const logout = () => {
@@ -28,7 +40,7 @@ export const AuthProvider = ({ children }) => {
 
   // Provide user, login, and logout throughout the component tree
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, signup, logout }}>
       {children}
     </AuthContext.Provider>
   );

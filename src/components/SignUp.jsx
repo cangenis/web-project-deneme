@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useAuth } from "../AuthContext";
 import { Link } from "react-router-dom";
+import "../styles/SignUp.css";
 import nameLogo from "../assets/organizasso-name-transparent.png";
 
 function SignUp() {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
-  const [telephone, setTelephone] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [telephone, setTelephone] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const { signup } = useAuth(); // Use signup from context
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -18,12 +21,15 @@ function SignUp() {
       const response = await axios.post("http://localhost:5001/register", {
         name,
         surname,
-        telephone,
         username,
         email,
+        telephone,
         password,
       });
       setMessage("User created successfully: " + response.data.username);
+      if (response.data) {
+        signup(response.data); // Pass user data to signup function
+      }
     } catch (error) {
       if (error.response) {
         // The request was made and the server responded with a status code
@@ -40,9 +46,23 @@ function SignUp() {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
-      <img src={nameLogo} alt="Name Logo" style={{ maxWidth: "200px" }} />
-      <form onSubmit={handleSubmit}>
+    <div className="sign-up-container">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <img
+          src={nameLogo}
+          alt="Name Logo"
+          style={{
+            maxWidth: "200px",
+          }}
+        />
+      </div>
+      <form onSubmit={handleSubmit} className="sign-up-form">
         <p></p>
         <div>
           <label>
@@ -115,12 +135,14 @@ function SignUp() {
           </label>
         </div>
         <div>
-          <button type="submit">Register</button>
+          <button type="submit" className="sign-up-link">
+            Register
+          </button>
         </div>
       </form>
       <p>{message}</p>
       <p>
-        Already have an account?? <Link to="/login">Login now!</Link>
+        Already have an account? <Link to="/login">Login now!</Link>
       </p>
     </div>
   );

@@ -5,7 +5,7 @@ const User = require("./models/User");
 const app = express();
 app.use(express.json());
 const cors = require("cors");
-app.use(cors()); // This will enable CORS for all routes and origins
+app.use(cors()); // Enable CORS for all routes and origins
 
 // MongoDB Connection
 mongoose
@@ -15,14 +15,14 @@ mongoose
 
 // Registration route
 app.post("/register", async (req, res) => {
-  const { name, surname, telephone, username, email, password } = req.body;
+  const { name, surname, username, email, telephone, password } = req.body;
   try {
     const user = await User.create({
       name,
       surname,
-      telephone,
       username,
       email,
+      telephone,
       password,
     });
     res.status(201).json({ userId: user._id });
@@ -38,10 +38,10 @@ app.post("/login", async (req, res) => {
     const user = await User.login(email, password);
     res.status(200).json({
       userId: user._id,
-      username: user.username,
       name: user.name,
       surname: user.surname,
       email: user.email,
+      username: user.username,
       telephone: user.telephone,
     });
   } catch (err) {

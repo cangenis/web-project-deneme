@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../AuthContext";
 import { Link } from "react-router-dom";
-import "../style/Login.css";
+import "../styles/Login.css";
 import nameLogo from "../assets/organizasso-name-transparent.png";
 
 function Login() {
@@ -27,9 +27,23 @@ function Login() {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
-      <form onSubmit={handleSubmit}>
-        <img src={nameLogo} alt="Name Logo" style={{ maxWidth: "200px" }} />
+    <div className="login-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <img
+            src={nameLogo}
+            alt="Name Logo"
+            style={{
+              maxWidth: "200px",
+            }}
+          />
+        </div>
         <p></p>
         <input
           type="email"
@@ -43,7 +57,7 @@ function Login() {
           placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit" className="login-button">
+        <button type="submit" className="login-link">
           Login
         </button>
       </form>
