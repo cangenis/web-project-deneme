@@ -9,6 +9,7 @@ function Forum() {
       <h1>Forum</h1>
       <p>
         Welcome to the forum {user.username}! This page is under construction.
+        Please come back later.
       </p>
     </div>
   );

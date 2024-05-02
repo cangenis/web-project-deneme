@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import nameLogo from "../assets/organizasso-name-transparent.png";
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -38,31 +40,10 @@ function SignUp() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Sign Up</h2>
+    <div style={{ textAlign: "center", marginTop: "20px" }}>
+      <img src={nameLogo} alt="Name Logo" style={{ maxWidth: "200px" }} />
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Username:
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Email:
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </label>
-        </div>
+        <p></p>
         <div>
           <label>
             Name:
@@ -71,6 +52,7 @@ function SignUp() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              placeholder="Required"
             />
           </label>
         </div>
@@ -82,16 +64,42 @@ function SignUp() {
               value={surname}
               onChange={(e) => setSurname(e.target.value)}
               required
+              placeholder="Required"
             />
           </label>
         </div>
         <div>
+          <div>
+            <label>
+              Username:
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                placeholder="Required"
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Email:
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder="Required"
+              />
+            </label>
+          </div>
           <label>
             Telephone:
             <input
               type="text"
               value={telephone}
               onChange={(e) => setTelephone(e.target.value)}
+              placeholder="Optional"
             />
           </label>
         </div>
@@ -111,6 +119,9 @@ function SignUp() {
         </div>
       </form>
       <p>{message}</p>
+      <p>
+        Already have an account?? <Link to="/login">Login now!</Link>
+      </p>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../AuthContext";
+import horizontalLogo from "../assets/organizasso-horizontal-transparent.png";
 
 function Navbar() {
   const { user, logout } = useAuth();
@@ -18,7 +19,11 @@ function Navbar() {
         to="/"
         style={{ textDecoration: "none", color: "black", fontSize: "24px" }}
       >
-        Home
+        <img
+          src={horizontalLogo}
+          alt="Horizontal Logo"
+          style={{ maxWidth: "300px" }}
+        />
       </Link>
       <div>
         <input

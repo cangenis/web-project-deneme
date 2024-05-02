@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../style/Home.css";
 
 function Home() {
   return (
@@ -13,32 +14,10 @@ function Home() {
     >
       <h1>Welcome to Organiz'Asso</h1>
       <p>
-        This is the best place to exchange ideas and participate in discussions.
+        This is the new way to exchange ideas and participate in discussions.
       </p>
-      <p>Join us now!</p>
-      <Link
-        to="/signup"
-        style={{
-          margin: "10px",
-          padding: "10px",
-          backgroundColor: "#4CAF50",
-          color: "white",
-          textDecoration: "none",
-        }}
-      >
-        Sign Up
-      </Link>
-      <Link
-        to="/login"
-        style={{
-          margin: "10px",
-          padding: "10px",
-          backgroundColor: "#008CBA",
-          color: "white",
-          textDecoration: "none",
-        }}
-      >
-        Login
+      <Link to="/login" className="join-button">
+        Join Us Now!
       </Link>
     </div>
   );

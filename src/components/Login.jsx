@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useAuth } from "../AuthContext"; // Make sure to import useAuth
+import { useAuth } from "../AuthContext";
+import { Link } from "react-router-dom";
+import "../style/Login.css";
+import nameLogo from "../assets/organizasso-name-transparent.png";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -24,25 +27,30 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Email:
+    <div style={{ textAlign: "center", marginTop: "20px" }}>
+      <form onSubmit={handleSubmit}>
+        <img src={nameLogo} alt="Name Logo" style={{ maxWidth: "200px" }} />
+        <p></p>
         <input
           type="email"
           value={email}
+          placeholder="e-mail"
           onChange={(e) => setEmail(e.target.value)}
         />
-      </label>
-      <label>
-        Password:
         <input
           type="password"
           value={password}
+          placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-      </label>
-      <button type="submit">Login</button>
-    </form>
+        <button type="submit" className="login-button">
+          Login
+        </button>
+      </form>
+      <p>
+        Don't have an account? <Link to="/signup">Sign up now!</Link>
+      </p>
+    </div>
   );
 }
 

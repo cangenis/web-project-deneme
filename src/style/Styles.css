@@ -1,0 +1,11 @@
+*::selection {
+  background-color: var(--main-color);
+  color: var(--light-main-color);
+}
+
+:root {
+  --main-color: #5dacbd;
+  --background-color: #24527a;
+  --light-background-color: #a7bcb9;
+  --light-main-color: #e0ebeb;
+}
