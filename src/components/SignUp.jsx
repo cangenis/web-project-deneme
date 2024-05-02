@@ -63,7 +63,6 @@ function SignUp() {
         />
       </div>
       <form onSubmit={handleSubmit} className="sign-up-form">
-        <p></p>
         <div>
           <label>
             Name:

@@ -4,16 +4,9 @@ import "../styles/Home.css";
 
 function Home() {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        marginTop: "20px",
-      }}
-    >
-      <h1>Welcome to Organiz'Asso</h1>
-      <p>
+    <div className="home-container">
+      <h1 className="home-header">Welcome to Organiz'Asso</h1>
+      <p className="home-text">
         This is the new way to exchange ideas and participate in discussions.
       </p>
       <Link to="/login" className="join-button">

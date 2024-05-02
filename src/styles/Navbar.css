@@ -1,0 +1,60 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f8f9fa;
+  align-items: center; /* This will vertically center all items in the navbar */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* subtle shadow for a little depth */
+}
+
+.navbar-logo {
+  max-width: 300px; /* Control logo size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.navbar-logo img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a,
+.navbar-links button {
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.navbar-links button {
+  padding: 8px 16px;
+  background-color: var(--background-color);
+  color: var(--light-main-color);
+  border-radius: 5px;
+}
+
+.navbar-links button:hover {
+  background-color: var(--dark-background-color);
+}
+
+.navbar-search {
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+:root {
+  --main-color: #5dacbd;
+  --background-color: #25547e;
+  --light-background-color: #a7bcb9;
+  --light-main-color: #e3eded;
+  --dark-background-color: #193e5d;
+}
